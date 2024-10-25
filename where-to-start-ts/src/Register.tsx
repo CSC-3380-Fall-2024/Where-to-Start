@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 const Register = () => {
-  const [email, setEmail] = useState("");                // email input state
-  const [password, setPassword] = useState("");          // password input state
-  const [confirmPassword, setConfirmPassword] = useState(""); // confirm password input state
+  const [email, setEmail] = useState("");                // email input here
+  const [password, setPassword] = useState("");          // password input here
+  const [confirmPassword, setConfirmPassword] = useState(""); // confirm password input here
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();  // prevent default form behavior

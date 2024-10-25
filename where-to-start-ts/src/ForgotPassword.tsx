@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 const ForgotPassword = () => {
-  const [email, setEmail] = useState("");   // email input state
+  const [email, setEmail] = useState("");   // email here
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();  // prevent default form behavior
+    e.preventDefault();  // forces input
 
     console.log("Forgot Password submitted for", { email });
-    // Add your password reset logic here (e.g., send reset link to email)
+    // password reset code goes here=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   };
 
   return (
