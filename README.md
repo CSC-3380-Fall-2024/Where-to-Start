@@ -1,2 +1,3 @@
 # Team-11
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+run npm install
+npm run dev
