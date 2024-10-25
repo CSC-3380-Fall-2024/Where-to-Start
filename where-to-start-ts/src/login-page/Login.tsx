@@ -9,7 +9,7 @@ const Login = () => {
     e.preventDefault(); // prevent default form submission behavior
 
     console.log("Login submitted with", { email, password });
-    // login verif code here==-=====-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    // login verif code here==-=====-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-======-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   };
 
   return (
@@ -30,7 +30,7 @@ const Login = () => {
           {/* Positions the button relative to the image */}
 
           <Link
-            to="/where-to-start"
+            to="/where-to-start" {/*  implement button to another page=-==-==-=-=-=-==-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=}
             className="px-16 py-8 text-4xl text-white font-semibold rounded-md hover:bg-yellow-300 hover:text-black transition duration-300 ease-in-out whitespace-nowrap"
             style={{ backgroundColor: 'transparent', fontFamily: '"Inter", sans-serif' }}
           >
