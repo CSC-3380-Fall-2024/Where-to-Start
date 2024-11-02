@@ -119,7 +119,7 @@ const Login = () => {
             <Link to="/register" className="mt-2 text-sm text-indigo-600 hover:text-indigo-500">
               Register Here
             </Link>
-            {/* Register link */}
+            {/* Register link Re comitting this becauase the login was my points last week and the forgot passwrod and register was points for this week*/}
           </div>
         </div>
       </div>
