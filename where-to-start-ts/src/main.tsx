@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import Home from './home/home.tsx';
 import './index.css'
+import Contact from './Contact/Contact.tsx';
 
 //Entry Point To The Whole Application
 createRoot(document.getElementById('root')!).render(
