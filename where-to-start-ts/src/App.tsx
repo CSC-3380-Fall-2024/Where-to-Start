@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";  // Import React Router components
-import Login from "./Login";        // Login component
-import Register from "./Register";  // Register component
-import ForgotPassword from "./ForgotPassword";  // ForgotPassword component
+import Login from "./loginpage/Login";        // Login component
+import Register from "./loginpage/Register";  // Register component
+import ForgotPassword from "./loginpage/ForgotPassword";  // ForgotPassword component
 
 function App() {
   return (
