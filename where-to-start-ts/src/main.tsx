@@ -9,6 +9,6 @@ import Contact from './Contact/Contact.tsx';
 //Entry Point To The Whole Application
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Contact />
+    <Home />
   </StrictMode>,
 )
