@@ -1,14 +1,12 @@
-/*
-    Where the code is done for many entry points, pages,
-    in this application
-*/
-function App() {
+import React from 'react';
+import './index.css';
+import AboutUsBackgroundImage from '../assets/';
 
+function App() {
   return (
-    <>
-      <div className="app">app</div>
-    </>
-  )
+    <div></div>
+  );
 }
 
-export default App
+export default App;
+

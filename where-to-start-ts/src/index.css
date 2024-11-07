@@ -1,8 +1,36 @@
-/*  
-    Entry point to CSS files
-    this leads main.tsx
-*/
+/* index.css */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Background styling */
+.background-container {
+    background-image: url('./assets/AboutUsBackgroundImage.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 2rem;
+  }
+  
+  /* Content box styling */
+  .content-box {
+    background-color: white;
+    padding: 2rem;
+    width: 30%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Text styling */
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
