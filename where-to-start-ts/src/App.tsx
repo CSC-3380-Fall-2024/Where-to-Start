@@ -1,17 +1,11 @@
-/*
-    Where the code is done for many entry points, pages,
-    in this application
-*/
 import React from 'react';
-import Contact from './Contact/Contact';
+import './index.css';
+import ContactsPage  from '../assets/ContactsPage.jpg';
 
 function App() {
-
   return (
-    <>
-      <div className="app">app</div>
-    </>
-  )
+    <div></div>
+  );
 }
 
-export default App
+export default App;
