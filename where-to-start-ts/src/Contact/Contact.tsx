@@ -1,61 +1,32 @@
 import React from 'react';
+import '../index.css'; // Importing the global CSS file
 
-const Contact: React.FC = () => {
+import ContactsPage from '../assets/ContactsPage.jpg'; // Correct image import
+
+function Contact() {
   return (
     <div
-      className="flex items-center justify-center min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('./assets/ContactsPage.jpg')" }}
+      className="contact-background"
+      style={{ backgroundImage: `url(${ContactsPage})` }} // Corrected image usage
     >
-      {/* Contact textbox */}
-      <div className="absolute top-1/4 left-1/4 transform -translate-y-1/4 bg-white p-6 rounded-lg shadow-lg w-80">
-        <h1 className="text-2xl font-bold mb-4 text-center text-indigo-600">Contact Us</h1>
+      {/* Contact form container */}
+      <div className="contact-form-container">
+        <h2 className="contact-header">Contact Us</h2>
 
-        {/* Admins Name */}
-        <div className="mb-3">
-          <label className="block text-sm font-medium text-gray-700">Admin Name</label>
-          <input
-            type="text"
-            value="place holder for our names"
-            readOnly
-            className="mt-1 block w-full p-1 border border-gray-300 rounded-md shadow-sm bg-white"
-          />
-        </div>
-
-        {/* Our Email */}
-        <div className="mb-3">
-          <label className="block text-sm font-medium text-gray-700">Email</label>
-          <input
-            type="email"
-            value="admin@example.com"
-            readOnly
-            className="mt-1 block w-full p-1 border border-gray-300 rounded-md shadow-sm bg-white"
-          />
-        </div>
-
-        {/* our Phone */}
-        <div className="mb-3">
-          <label className="block text-sm font-medium text-gray-700">Phone</label>
-          <input
-            type="tel"
-            value="(123) 456-7890"
-            readOnly
-            className="mt-1 block w-full p-1 border border-gray-300 rounded-md shadow-sm bg-white"
-          />
-        </div>
-
-        {/* Message */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Message</label>
-          <textarea
-            rows={3}
-            value="For inquiries, please reach out via email or phone." /*just an idea*/
-            readOnly
-            className="mt-1 block w-full p-1 border border-gray-300 rounded-md shadow-sm bg-white"
-          />
+        {/* Contact information (non-interactive) */}
+        <div className="contact-info">
+          <p><span className="underline">Email Us</span></p> 
+          geauxtigers25@tigers.com
+          <p><span className="underline">Call Us</span></p>
+          888-222-3333
+          <p><span className="underline">Chat With Us</span></p>
+          Chat with our team by emailing or calling us, Monday through Friday, 10am-2pm CST
+          <p><span className="underline">Mailing Address</span></p>
+          TBT.
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Contact;
