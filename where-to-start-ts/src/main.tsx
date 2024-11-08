@@ -1,16 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import App from './App';
-import LandingPage from './Landing/LandingPage';
-import Contact from './Contact/Contact';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App.tsx'
+import Contact from './Contact/Contact.tsx'
+import './index.css'
 
-ReactDOM.render(
-  <Router>
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
-  </Router>,
-  document.getElementById('root')
-);
+//Entry Point To The Whole Application
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <Contact />
+  </StrictMode>,
+)
