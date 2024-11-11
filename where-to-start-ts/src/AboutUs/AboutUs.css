@@ -21,7 +21,7 @@ body {
   }
   
   .about-us-main {
-    background-image: url('../assets/gym-image.jpg'); /* Update with the correct path */
+    background-image: url('../assets/gym-image.jpg'); 
     background-size: cover;
     min-height: 100vh;
     display: flex;
