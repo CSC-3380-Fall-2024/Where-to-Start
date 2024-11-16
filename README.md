@@ -4,5 +4,7 @@
     cd src
     npm i  
     npm install react-router-dom
-    npm install fireabse
+    npm install firebase
+    npm install --save react-toastify
+
       npm run dev

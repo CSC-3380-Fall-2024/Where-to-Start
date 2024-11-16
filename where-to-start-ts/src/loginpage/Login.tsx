@@ -1,23 +1,51 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";  // Import Link for navigation
+import React, { useState, FormEvent } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify"
+import { auth } from "@/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-const Login = () => {
-  const [email, setEmail] = useState("");          // email input
-  const [password, setPassword] = useState("");    // password input
+const Login: React.FC = () => {
+  const [username, setUsername] = useState<string>("");  // state for username input
+  const [email, setEmail] = useState<string>("");        // state for email input
+  const [password, setPassword] = useState<string>("");  // state for password input
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); // prevent default form submission behavior
+  const [loading, setLoading] = useState(false)
 
-    console.log("Login submitted with", { email, password });
-    // TODO: Add login authentication here
+  const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData(e.currentTarget);
+    const { email, password} = Object.fromEntries(formData.entries()) as Record<string, string>;
+
+    try{
+      await signInWithEmailAndPassword(auth,email,password)
+
+    }catch(err: unknown){
+      if (err instanceof Error){
+        console.log(err)
+        toast.error(err.message)
+      }
+      else{
+        console.log("An unkown error occurred:", err)
+        toast.error('An unkown error occurred');
+      }
+    }
+    finally{
+      setLoading(false)
+    }
+    // Logging all inputs on form submission only
+    console.log("Form Submitted:");
+    console.log("Username:", username);
+    console.log("Email:", email);
+    console.log("Password:", password);
+    
+    // Implement login authentication logic here
   };
 
   return (
     <div className="w-full h-screen flex flex-col md:flex-row mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
-      {/* Outer container adjusts width/height to fit the screen */}
-      {/* flex flex-col: Stack sections vertically on small screens */}
-      {/* md:flex-row: Switch layout to side-by-side on larger screens */}
-      {/* mx-auto: Center the page horizontally */}
       
       <div
         className="md:w-[57.6388889%] w-full h-1/2 md:h-full bg-cover bg-center relative"
@@ -53,20 +81,16 @@ const Login = () => {
             Please enter your login details to sign in.
           </p>
 
-          <form onSubmit={handleSubmit}>
-            {/* Calls handleSubmit on form submission */}
-
-            <div className="mb-3 md:mb-4">
+          <form onSubmit={handleLogin}>            
+            <div className="mb-3 md:mb-4">              
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Email Address
-              </label>
-              {/* Email label */}
-
+              </label>              
               <input
                 type="email"
+                name="email"
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -74,52 +98,43 @@ const Login = () => {
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 required
               />
-              {/* Email input field */}
             </div>
-
             <div className="mb-4 md:mb-6">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
+                className="block text-sm font-medium text-gray-700">
                 Password
               </label>
-              {/* Password label */}
-
               <input
                 type="password"
+                name="password"
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password"
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 required
-              />
-              {/* Password input field */}
+                />
             </div>
-
+            
             <div className="flex items-center justify-between mb-4 md:mb-6">
               <Link to="/forgot-password" className="text-sm text-indigo-600 hover:text-indigo-500">
                 Forgot Password?
               </Link>
               {/* Forgot Password link */}
             </div>
-
             <button
               type="submit"
-              className="w-full py-2 px-4 border border-black text-sm font-medium rounded-md text-black bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
+              className="w-full py-2 px-4 border border-black text-sm font-medium rounded-md text-black bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Login
             </button>
-            {/* Submit button */}
           </form>
 
           <div className="mt-3 md:mt-4 text-center">
             <p className="text-gray-600">Don't have an account?</p>
-            <Link to="/register" className="mt-2 text-sm text-indigo-600 hover:text-indigo-500">
+            <button className="mt-2 text-sm text-indigo-600 hover:text-indigo-500" onClick={() => navigate('/register')}>
               Register Here
-            </Link>
-            {/* Register link Re comitting this becauase the login was my points last week and the forgot passwrod and register was points for this week*/}
+            </button>
           </div>
         </div>
       </div>
