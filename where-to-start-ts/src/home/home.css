@@ -1,0 +1,47 @@
+/* src/home/home.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .home-header nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .home-header nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .login-button {
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .background-section {
+    width: 100vw;
+    height: 900px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  

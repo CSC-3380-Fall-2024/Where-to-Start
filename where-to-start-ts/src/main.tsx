@@ -1,14 +1,15 @@
+// src/main.tsx or src/index.tsx (depending on your project setup)
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom"; // Import BrowserRouter
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App /> {/* Wraps App with BrowserRouter */}
+      <App />
     </BrowserRouter>
   </React.StrictMode>
 );
