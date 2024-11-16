@@ -1,13 +1,8 @@
 # Team-11
 
-
-run npm install
-    npm run dev
-    npm i
-=======
-cd where-to-start-ts
-cd src
-
-npm i
-npm install reacot-router-dom
-
+    cd where-to-start-ts
+    cd src
+    npm i  
+    npm install react-router-dom
+    npm install fireabse
+      npm run dev
