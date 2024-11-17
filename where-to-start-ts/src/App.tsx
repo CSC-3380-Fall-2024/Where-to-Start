@@ -18,7 +18,10 @@ const App: React.FC = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+      
       <Route path="*" element={<Navigate replace to="/login" />} />
+      //this line of code is routing most things to log in. 
+
     </Routes>
   );
 };

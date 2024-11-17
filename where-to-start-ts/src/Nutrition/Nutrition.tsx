@@ -7,7 +7,7 @@ const Nutrition: React.FC = () => {
         <div>
             <h1>Nutrition</h1>
             <p>Welcome to the Nutrition page! Here, you can find all the information related to our nutrition plans and tips.</p>
-            <img src={require('./path-to-your-image-file.png')} alt="Nutrition" style={{ width: '100%', height: 'auto' }} />
+            <img src={require('')} alt="Nutrition" style={{ width: '100%', height: 'auto' }} />
         </div>
     );
 };
