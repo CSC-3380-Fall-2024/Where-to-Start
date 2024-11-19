@@ -5,23 +5,23 @@ import './workouts.css';
 const workoutsData = [
   {
     muscle: 'Chest',
-    routines: ['Bench Press', 'Incline Dumbbell Press', 'Chest Fly'],
+    routines: ['Beginner', 'intermediate', 'Advanced'],
   },
   {
     muscle: 'Back',
-    routines: ['Pull-Ups', 'Deadlifts', 'Barbell Rows'],
+    routines: ['Beginner', 'intermediate', 'Advanced'],
   },
   {
     muscle: 'Legs',
-    routines: ['Squats', 'Lunges', 'Leg Press'],
+    routines: ['Beginner', 'intermediate', 'Advanced'],
   },
   {
     muscle: 'Arms',
-    routines: ['Bicep Curls', 'Tricep Dips', 'Hammer Curls'],
+    routines: ['Beginner', 'intermediate', 'Advanced'],
   },
   {
     muscle: 'Shoulders',
-    routines: ['Overhead Press', 'Lateral Raises', 'Front Raises'],
+    routines: ['Beginner', 'intermediate', 'Advanced'],
   },
 ];
 
@@ -42,7 +42,7 @@ const Workouts = () => {
       </header>
 
       {/* Page Title */}
-      <h1 className="page-title">Workout Routines</h1>
+      <h1 className="page-title"></h1>
 
       {/* Muscle Groups and Routines */}
       {workoutsData.map((category) => (
