@@ -1,91 +1,91 @@
 /* General Reset and Body Styling */
 body {
     margin: 0;
-    font-family: Arial, sans-serif; /* Simple, consistent font choice */
+    font-family: Arial, sans-serif; 
 }
 
 /* Page Layout */
 .workouts-page {
     padding: 20px;
-    background-color: #f8f9fa; /* Light background for contrast */
+    background-color: #f8f9fa; 
 }
 
 /* Header Section */
 .Workouts-header {
-    position: fixed; /* Sticks to the top */
+    position: fixed; 
     top: 0;
     left: 0;
-    width: 100%; /* Full-width header */
+    width: 100%; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black; /* Clean, minimal look */
+    background-color: black; 
     padding: 10px 20px;
     color: white;
-    z-index: 1000; /* Ensures header stays on top */
+    z-index: 1000; 
 }
 
 .Workouts-header nav a {
-    margin: 0 15px; /* Adds spacing between links */
+    margin: 0 15px; 
     color: white;
     text-decoration: none;
-    font-size: 16px; /* Comfortable reading size */
+    font-size: 16px; 
 }
 
 .Workouts-header nav a:hover {
-    text-decoration: underline; /* Simple hover effect */
+    text-decoration: underline; 
 }
 
 .Workouts-header .login-button {
     color: white;
     background-color: transparent;
     border: 1px solid white;
-    padding: 6px 12px; /* Balanced padding for click areas */
-    font-size: 16px; /* Matches link font size */
-    cursor: pointer; /* Indicates interactivity */
+    padding: 6px 12px; 
+    font-size: 16px; 
+    cursor: pointer; 
 }
 
 .Workouts-header .login-button:hover {
     background-color: white;
-    color: black; /* Clear hover state */
+    color: black; 
 }
 
 /* Page Title */
 .page-title {
     font-size: 2rem;
-    margin: 80px 0 20px; /* Prevents overlap with the fixed header */
-    text-align: center; /* Centers the title for focus */
+    margin: 80px 0 20px; 
+    text-align: center; 
 }
 
 /* Muscle Category Section */
 .muscle-category {
-    margin-bottom: 30px; /* Adds spacing between categories */
+    margin-bottom: 30px; 
 }
 
 .muscle-title {
     font-size: 1.5rem;
-    margin-bottom: 10px; /* Separates the title from its content */
+    margin-bottom: 10px; 
 }
 
 /* Routine Scroll Section */
 .routine-scroll {
     display: flex;
-    overflow-x: auto; /* Enables horizontal scrolling */
-    gap: 15px; /* Adds space between cards */
-    padding: 10px 0; /* Creates breathing room above and below */
+    overflow-x: auto; 
+    gap: 15px; 
+    padding: 10px 0; 
 }
 
 .routine-card {
-    flex: 0 0 auto; /* Keeps cards fixed in size */
+    flex: 0 0 auto; 
     width: 150px;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #007bff; /* Bright blue for emphasis */
+    background-color: #007bff; 
     color: white;
-    border-radius: 8px; /* Smooth corners for a modern feel */
+    border-radius: 8px; 
     text-align: center;
     font-size: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }

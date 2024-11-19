@@ -10,21 +10,21 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url('../assets/contacts.jpg'); /* Use your actual image path */
+  background-image: url('../assets/contacts.jpg');
   background-size: cover;
   background-position: center;
-  padding-top: 80px; /* Prevent header overlap */
+  padding-top: 80px; 
 }
 
 /* Contact Information Section */
 .contact-info {
-  background-color: rgba(0, 0, 0, 0.6); /* Subtle transparency effect */
+  background-color: rgba(0, 0, 0, 0.6); 
   color: white;
   padding: 20px 40px;
   border-radius: 10px;
   max-width: 500px;
   text-align: left;
-  backdrop-filter: blur(10px); /* Adds a modern, glass-like effect */
+  backdrop-filter: blur(10px); 
 }
 
 .contact-info h1 {
@@ -47,29 +47,29 @@ body {
 
 /* Header Styling */
 .Contact-header {
-  position: fixed; /* Sticks to the top */
+  position: fixed; 
   top: 0;
   left: 0;
-  width: 100%; /* Spans the entire viewport */
+  width: 100%; 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: black; /* Sleek black header */
+  background-color: black; 
   padding: 10px 20px;
   color: white;
-  z-index: 1000; /* Ensures it's on top of all content */
+  z-index: 1000; 
 }
 
 /* Navigation Links */
 .Contact-header nav a {
-  margin: 0 15px; /* Adds space between links */
+  margin: 0 15px; 
   color: white;
   text-decoration: none;
-  font-size: 16px; /* Matches header font size */
+  font-size: 16px; 
 }
 
 .Contact-header nav a:hover {
-  text-decoration: underline; /* Simple hover effect */
+  text-decoration: underline; 
 }
 
 /* Login Button */
@@ -77,12 +77,12 @@ body {
   color: white;
   background-color: transparent;
   border: 1px solid white;
-  padding: 6px 12px; /* Balanced padding */
+  padding: 6px 12px;
   font-size: 16px;
-  cursor: pointer; /* Indicates interactivity */
+  cursor: pointer; 
 }
 
 .Contact-header .login-button:hover {
-  background-color: white; /* Reversed hover effect */
+  background-color: white; 
   color: black;
 }
