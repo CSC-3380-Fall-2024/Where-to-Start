@@ -37,6 +37,13 @@ const fontStyles = {
         textDecoration: 'underline',
         color: '#FFFFFF',
     },
+
+    title: {
+        fontFamily: 'KronaOne, sans-serif',
+        fontSize: '20px',
+        fontWeight: 'normal',
+        color: '#FFFFFF',
+    }
 };
 
 const backgroundContents = [
@@ -155,15 +162,19 @@ function Home() {
     return (
         <div className="home-main" style={{ width: '100vw', overflow: 'hidden' }}>
             <header className="home-header">
-                <div>WHERE TO START</div>
+            <div className="left-wrapper">
+                <div className="left-position" style={ fontStyles.title }>WHERE TO START</div>
+            </div>
                 <nav>
                     <Link to="/">Home</Link>
-                    <Link to="/about-us">About Us</Link>
+                    <Link to="/AboutUs">About Us</Link>
                     <Link to="/workouts">Workouts</Link>
                     <Link to="/nutrition">Nutrition</Link>
                     <Link to="/contacts">Contacts</Link>
                 </nav>
-                <button className="login-button">Login</button>
+                <div className="right-wrapper">
+                    <button className="login-button right-position">Login</button>
+                </div>
             </header>
             {backgrounds.map((image, index) => (
                 <BackgroundSection 

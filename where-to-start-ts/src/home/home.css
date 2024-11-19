@@ -16,9 +16,29 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter';
   }
-  
+
+  .left-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 0px; /* Pushes the entire wrapper 130px from the left */
+  }
+
+  .left-position {
+    margin-left: 120px; /* Correctly pushes the element 130px from the left */
+  }
+
+  .right-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 0px; /* Pushes the entire wrapper 130px from the left */
+  }
+
+  .right-position {
+    margin-right: 120px; /* Correctly pushes the element 130px from the left */
+  }
+
   .home-header {
     display: flex;
     justify-content: space-between;
@@ -38,6 +58,7 @@ body {
     text-decoration: underline;
   }
   
+  /* Fix the login button */
   .login-button {
     color: white;
     background-color: transparent;
