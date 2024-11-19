@@ -7,7 +7,9 @@ body {
 /* Page Layout */
 .workouts-page {
     padding: 20px;
-    background-color: #f8f9fa; 
+    background-image: url('../assets/workouts.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Header Section */
