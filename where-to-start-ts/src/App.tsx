@@ -9,17 +9,18 @@ import Register from './loginpage/Register';
 import ForgotPassword from './loginpage/ForgotPassword';
 import Contact from './Contact/Contact';
 
+
 const App: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/contacts" element={<Contact />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       
-      <Route path="*" element={<Navigate replace to="/login" />} />
+      {/* <Route path="*" element={<Navigate replace to="/login" />} /> */}
       //this line of code is routing most things to log in. 
 
     </Routes>
