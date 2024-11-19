@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'KronaOne';
     src: url('../assets/fonts/KronaOne-Regular.ttf') format('truetype');
@@ -11,3 +12,45 @@
     font-weight: 400;
     font-style: normal;
   }
+
+/* src/Contact/Contact.css */
+
+.contact-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('../assets/contacts.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .contact-info {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: left;
+    backdrop-filter: blur(10px);
+  }
+  
+  .contact-info h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .contact-item h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .contact-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 5px 0;
+  }
+  
+
