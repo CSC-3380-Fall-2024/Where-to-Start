@@ -1,3 +1,78 @@
+
+.contact-background {
+    background-image: url('../assets/ContactPage.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.contact-form-container {
+    width: 580px;
+    height: 580px;
+    position: absolute;
+    top: 149px;
+    left: 130px;
+    gap: 0px;
+    border-radius: 25px 0px 0px 0px;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+    text-align: left; /* All text in the contact form will be left-aligned */
+}
+
+.contact-header {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.8em;
+    text-align: left; /* Ensure the header is left-aligned */
+    margin-left: 20px;
+    margin-bottom: 1em;
+    color: white;
+    font-weight: 300;
+}
+
+.contact-info {
+    font-size: 1.2em;
+    color: white;
+    margin-left: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+.main-textarea {
+    margin-left: 20px;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    color: #333;
+    resize: vertical;
+}
+
+.main-textarea:focus {
+    outline: none;
+    border: 1px solid #aaa;
+}
+
+/* Underline class for headers */
+.underline {
+  text-decoration: underline;
+  color: white;
+}
+
 /*  
     Entry point to CSS files
     this leads main.tsx 
@@ -9,3 +84,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
