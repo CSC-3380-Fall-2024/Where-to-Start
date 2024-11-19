@@ -1,40 +1,88 @@
-/* src/Contact/Contact.css */
+/* General Reset and Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif; /* Clean and reliable font choice */
+}
 
+/* Page Layout */
 .contact-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-image: url('../assets/contacts.jpg'); /* Replace with your background image path */
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .contact-info {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 20px 40px;
-    border-radius: 10px;
-    max-width: 500px;
-    text-align: left;
-    backdrop-filter: blur(10px);
-  }
-  
-  .contact-info h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .contact-item h2 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-  
-  .contact-item p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 5px 0;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url('../assets/contacts.jpg');
+  background-size: cover;
+  background-position: center;
+  padding-top: 80px; 
+}
+
+/* Contact Information Section */
+.contact-info {
+  background-color: rgba(0, 0, 0, 0.6); 
+  color: white;
+  padding: 20px 40px;
+  border-radius: 10px;
+  max-width: 500px;
+  text-align: left;
+  backdrop-filter: blur(10px); 
+}
+
+.contact-info h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.contact-item h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.contact-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 5px 0;
+}
+
+/* Header Styling */
+.Contact-header {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black; 
+  padding: 10px 20px;
+  color: white;
+  z-index: 1000; 
+}
+
+/* Navigation Links */
+.Contact-header nav a {
+  margin: 0 15px; 
+  color: white;
+  text-decoration: none;
+  font-size: 16px; 
+}
+
+.Contact-header nav a:hover {
+  text-decoration: underline; 
+}
+
+/* Login Button */
+.Contact-header .login-button {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 6px 12px;
+  font-size: 16px;
+  cursor: pointer; 
+}
+
+.Contact-header .login-button:hover {
+  background-color: white; 
+  color: black;
+}
