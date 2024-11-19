@@ -1,14 +1,3 @@
-
-import React from 'react';
-import './index.css';
-import ContactsPage  from '../assets/ContactsPage.jpg';
-
-function App() {
-  return (
-    <div></div>
-  );
-}
-
 // src/App.tsx
 
 import React from 'react';
@@ -36,6 +25,5 @@ const App: React.FC = () => {
     </Routes>
   );
 };
-
 
 export default App;
