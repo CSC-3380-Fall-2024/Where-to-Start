@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Contact.css';
 
 const Contact = () => {
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
+
   return (
     <div>
       {/* Header Section */}
@@ -14,7 +21,9 @@ const Contact = () => {
           <a href="/nutrition">Nutrition</a>
           <a href="/contacts">Contacts</a>
         </nav>
-        <button className="login-button">Login</button>
+        <button className="login-button" onClick={handleLoginClick}>
+          Login
+        </button>
       </header>
 
       {/* Main Content */}
