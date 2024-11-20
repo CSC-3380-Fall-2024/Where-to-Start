@@ -1,91 +1,139 @@
 /* General Reset and Body Styling */
 body {
     margin: 0;
-    font-family: Arial, sans-serif; 
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f9fc; /* Light background for better readability */
+    color: #333; /* Neutral text color */
 }
 
 /* Page Layout */
 .workouts-page {
     padding: 20px;
-    background-color: #f8f9fa; 
+    background-image: url('../assets/workouts.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    backdrop-filter: brightness(0.8); 
 }
 
 /* Header Section */
 .Workouts-header {
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; 
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black; 
+    background-color: rgba(0, 0, 0, 0.8); 
     padding: 10px 20px;
     color: white;
-    z-index: 1000; 
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .Workouts-header nav a {
-    margin: 0 15px; 
+    margin: 0 15px;
     color: white;
     text-decoration: none;
-    font-size: 16px; 
+    font-size: 16px;
+    transition: color 0.3s;
 }
 
 .Workouts-header nav a:hover {
-    text-decoration: underline; 
+    
+    text-decoration: underline;
 }
 
 .Workouts-header .login-button {
     color: white;
     background-color: transparent;
     border: 1px solid white;
-    padding: 6px 12px; 
-    font-size: 16px; 
-    cursor: pointer; 
+    padding: 6px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .Workouts-header .login-button:hover {
     background-color: white;
-    color: black; 
+    color: black;
 }
 
 /* Page Title */
 .page-title {
-    font-size: 2rem;
-    margin: 80px 0 20px; 
-    text-align: center; 
+    font-size: 2.5rem;
+    margin: 100px 0 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Muscle Category Section */
 .muscle-category {
-    margin-bottom: 30px; 
+    margin-bottom: 40px;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
 }
 
 .muscle-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px; 
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: black;
+    text-align: center;
 }
 
-/* Routine Scroll Section */
+
 .routine-scroll {
     display: flex;
-    overflow-x: auto; 
+    justify-content: center; 
+    align-items: center; 
+    flex-wrap: wrap; 
     gap: 15px; 
-    padding: 10px 0; 
+    padding: 10px 0;
 }
 
+
+.routine-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+
+
 .routine-card {
-    flex: 0 0 auto; 
-    width: 150px;
-    height: 100px;
+    flex: 0 0 auto;
+    width: 200px; 
+    height: 150px; 
     display: flex;
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
-    background-color: #007bff; 
-    color: white;
-    border-radius: 8px; 
+    background-color: rgba(255, 255, 255, 0.6); 
+    color: black;
+    border-radius: 12px;
     text-align: center;
     font-size: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px; 
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.routine-card:hover {
+    transform: scale(1.05); 
+    background-color: rgba(255, 255, 255, 0.8); 
+}
+
+.routine-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #333; 
+}
+
+.routine-card p {
+    font-size: 0.9rem;
+    color: #555; 
 }
