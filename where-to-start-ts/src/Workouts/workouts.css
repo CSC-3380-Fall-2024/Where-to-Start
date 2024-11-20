@@ -74,7 +74,7 @@ body {
 .muscle-category {
     margin-bottom: 40px;
     padding: 10px 15px;
-    background-color: rgba(255, 255, 255, 0.8); 
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(5px);
