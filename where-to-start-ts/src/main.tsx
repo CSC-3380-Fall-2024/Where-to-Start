@@ -13,7 +13,7 @@ import Contact from "./Contact/Contact";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Contact/>
+      <Home/>
     </BrowserRouter>
   </React.StrictMode>
 );

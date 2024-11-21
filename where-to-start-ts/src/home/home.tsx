@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HomeBackgroundOne from '../assets/gym_dumbbells_inventory_219519_1440x900.jpg';
+import HomeBackgroundOne from '../assets/meghan-holmes-buWcS7G1_28-unsplash.jpg';
 import HomeBackgroundTwo from '../assets/home-gym-designer-luxury-concept-hero.jpg';
-import HomeBackgroundThree from '../assets/meghan-holmes-buWcS7G1_28-unsplash.jpg';
+import HomeBackgroundThree from '../assets/fitness-gym-and-equipment-photography-dn9w2z4r8yd2wi47.jpg';
 import HomeBackgroundFour from '../assets/classic-coastal-greenwich-kitchen.jpg';
 import HomeBackgroundFive from '../assets/nastuh-abootalebi-yWwob8kwOCk-unsplash.jpg';
 import './home.css'; 
