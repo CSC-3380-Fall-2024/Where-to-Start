@@ -75,7 +75,7 @@ body {
 /* Login Button */
 .Contact-header .login-button {
   color: white;
-  background-color: transparent;
+  background-color: black;
   border: 1px solid white;
   padding: 6px 12px;
   font-size: 16px;
