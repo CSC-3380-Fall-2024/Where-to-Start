@@ -1,8 +1,6 @@
 import React, { useState, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { auth } from "@/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState(""); // For email input
@@ -10,26 +8,18 @@ const Login: React.FC = () => {
   const [loading, setLoading] = useState(false); // For showing a loading state
   const navigate = useNavigate();
 
-  const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
+  const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Stop the form from refreshing the page
 
-    if (!email || !password) {
-      toast.warn("Please fill out both fields.");
-      return;
-    }
-
+    // Show a loading state
     setLoading(true);
-    try {
-      // Log in with Firebase
-      await signInWithEmailAndPassword(auth, email, password);
+
+    // Directly navigate to the homepage without verifying login
+    setTimeout(() => {
       toast.success("Welcome back!");
-      navigate("/home"); // Go to the homepage
-    } catch (error) {
-      toast.error("Failed to log in. Check your details and try again.");
-      console.error("Login error:", error);
-    } finally {
+      navigate("/"); // Go to the homepage
       setLoading(false);
-    }
+    }, 1000); 
   };
 
   return (
@@ -44,7 +34,7 @@ const Login: React.FC = () => {
             to="/"
             className="px-6 py-3 text-lg text-white font-bold rounded transition duration-300 ease-in-out"
             style={{
-              backgroundColor: "rgba(0, 0, 0, 0.5)", // Translucent black background
+              backgroundColor: "rgba(0, 0, 0, 0.5)", 
               textAlign: "center",
             }}
           >
@@ -69,7 +59,6 @@ const Login: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 className="mt-1 block w-full p-2 border rounded"
-                required
               />
             </div>
 
@@ -84,7 +73,6 @@ const Login: React.FC = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 className="mt-1 block w-full p-2 border rounded"
-                required
               />
             </div>
 
@@ -99,7 +87,7 @@ const Login: React.FC = () => {
               className="w-full py-2 px-4 border rounded bg-indigo-600 text-white hover:bg-indigo-500"
               disabled={loading}
             >
-              {loading ? "Logging in..." : "Login"}
+              {loading ? "Redirecting..." : "Login"}
             </button>
           </form>
 
