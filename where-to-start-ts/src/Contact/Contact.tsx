@@ -12,7 +12,7 @@ const Contact = () => {
   return (
     <div>
       {/* Header Section */}
-      <header className="Workouts-header">
+      <header className="workouts-header">
         <div>WHERE TO START</div>
         <nav>
           <a href="/">Home</a>

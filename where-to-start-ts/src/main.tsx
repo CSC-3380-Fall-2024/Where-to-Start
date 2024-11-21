@@ -6,11 +6,14 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import Nutrition from "./Nutrition/Nutrition";
+import Contact from "./Contact/Contact";
+import Home from "./home/home";
+import Workouts from "./Workouts/workouts";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Nutrition />
+      <Workouts />
     </BrowserRouter>
   </React.StrictMode>
 );
