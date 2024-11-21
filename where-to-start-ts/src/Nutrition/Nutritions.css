@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Ensures text is visible while loading */
+}
+
+/* Importing KronaOne font */
+@font-face {
+    font-family: 'KronaOne';
+    src: url('../assets/fonts/KronaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Apply KronaOne font to headers (h1, h2, h3, h4) */
+.krona-one-font {
+    font-family: 'KronaOne', serif;
+}
+
+/* Apply Inter font to placeholder text */
+.inter-font {
+    font-family: 'Inter', sans-serif;
+}
