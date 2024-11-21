@@ -3,6 +3,20 @@ import React, { useState } from 'react';
 import './workouts.css';
 
 // Workout data categorized by muscle groups with routines
+
+const getStars = (level: string) => {
+  const levelsToStars: { [key: string]: number } = {
+    Beginner: 1,
+    Novice: 2,
+    Intermediate: 3,
+    Advanced: 4,
+    Elite: 5,
+  };
+  const starCount = levelsToStars[level] || 0; // Fallback to 0 stars if level is not found
+  return '★'.repeat(starCount).padEnd(5, '☆'); // Fill remaining with empty stars
+};
+
+
 const workoutsData = [
   {
     muscle: 'Chest',
@@ -390,7 +404,6 @@ const Workouts = () => {
 
   return (
     <div className="workouts-page">
-      {/* Header Section */}
       <header className="Workouts-header">
         <div>WHERE TO START</div>
         <nav>
@@ -403,10 +416,8 @@ const Workouts = () => {
         <button>Login</button>
       </header>
 
-      {/* Page Title */}
       <h1 className="page-title"></h1>
 
-      {/* Muscle Groups and Routines */}
       {workoutsData.map((category) => (
         <div key={category.muscle} className="muscle-category">
           <h2 className="muscle-title">{category.muscle}</h2>
@@ -420,14 +431,18 @@ const Workouts = () => {
                   key={index}
                   className={`routine-card ${isExpanded ? 'expanded' : ''}`}
                   onClick={() => toggleExpand(category.muscle, routine.level)}
-                >
+                  >
                   <h3>{routine.level}</h3>
-                  <ul>
-                    {routine.exercises.map((exercise, i) => (
-                      <li key={i}>{exercise}</li>
-                    ))}
-                  </ul>
-                </div>
+                  {/* Render stars */}
+                  <div className="stars">{getStars(routine.level)}</div>
+                  {isExpanded && (
+                    <ul>
+                      {routine.exercises.map((exercise, i) => (
+                        <li key={i}>{exercise}</li>
+                      ))}
+                    </ul>
+                  )}
+              </div>
               );
             })}
           </div>
