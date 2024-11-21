@@ -34,12 +34,19 @@ const Nutrition: React.FC = () => {
         <div className="w-full min-h-[3600px]">
             {/* Section 1 */}
             <section
-                className="h-[900px] bg-cover bg-center flex items-center"
+                className="h-[900px] bg-cover bg-center flex items-center relative"
                 style={{ backgroundImage: `url(${backgrounds[0]})` }}
             >
-                <div className="ml-[130px] text-white">
-                    <h1 className="text-[45px] font-bold krona-one-font">Welcome to Our Nutritional Page.</h1> {/* Apply KronaOne font */}
-                    <p className="text-[25px] mt-4 inter-font">It is all about what you're eating. Explore our recipes.</p> {/* Apply Inter font */}
+                {/* Overlay for contrast */}
+                <div className="absolute inset-0 bg-black opacity-20"></div>
+
+                <div className="ml-[130px] text-white relative z-10 -translate-y-7">
+                    <h1 className="text-[45px] font-bold krona-one-font">
+                        Discover Delicious and Healthy Recipes.
+                    </h1>
+                    <p className="text-[25px] mt-4 inter-font">
+                        Your journey to nutritious meals starts here. Explore our curated recipes!
+                    </p>
                 </div>
             </section>
 
@@ -47,10 +54,13 @@ const Nutrition: React.FC = () => {
             {[0, 1, 2].map((sectionIndex) => (
                 <section
                     key={sectionIndex}
-                    className="h-[900px] bg-cover bg-center flex items-center px-4 sm:px-8"
+                    className="h-[900px] bg-cover bg-center flex items-center px-4 sm:px-8 relative"
                     style={{ backgroundImage: `url(${backgrounds[sectionIndex + 1]})` }}
                 >
-                    <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-[1280px]">
+                    {/* Overlay for contrast */}
+                    <div className="absolute inset-0 bg-black opacity-20"></div>
+
+                    <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-[1280px] relative z-10">
                         {/* Glassmorphism Box 1 (Left) */}
                         <div className="glass-box w-[90%] md:w-[400px] h-[400px] bg-white bg-opacity-40 backdrop-blur-md rounded-lg shadow-md p-4 mb-8 md:mb-0 md:ml-[130px]">
                             <img
