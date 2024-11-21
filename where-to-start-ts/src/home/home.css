@@ -1,10 +1,44 @@
 /* src/home/home.css */
 
+@font-face {
+  font-family: 'KronaOne';
+  src: url('../assets/fonts/KronaOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter';
   }
-  
+
+  .left-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 0px; /* Pushes the entire wrapper 130px from the left */
+  }
+
+  .left-position {
+    margin-left: 120px; /* Correctly pushes the element 130px from the left */
+  }
+
+  .right-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 0px; /* Pushes the entire wrapper 130px from the left */
+  }
+
+  .right-position {
+    margin-right: 120px; /* Correctly pushes the element 130px from the left */
+  }
+
   .home-header {
     display: flex;
     justify-content: space-between;
@@ -24,6 +58,7 @@ body {
     text-decoration: underline;
   }
   
+  /* Fix the login button */
   .login-button {
     color: white;
     background-color: transparent;
@@ -44,34 +79,4 @@ body {
     background-position: center;
     background-repeat: no-repeat;
   }
-
-  .section {
-    height: 100vh; /* Full-screen sections */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  }
-  
-  .section-content {
-    background-color: rgba(0, 0, 0, 0.6); /* Black with opacity */
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 600px;
-    text-align: center;
-  }
-  
-  .section-content h2 {
-    margin-bottom: 10px;
-    font-size: 2rem;
-  }
-  
-  .section-content p {
-    font-size: 1.2rem;
-  }
-  
-  
   
