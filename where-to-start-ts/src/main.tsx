@@ -8,11 +8,12 @@ import "./index.css";
 import Nutrition from "./Nutrition/Nutrition";
 import Home from "./home/home";
 import Workouts from "./Workouts/workouts";
+import Contact from "./Contact/Contact";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Home />
+      <Contact/>
     </BrowserRouter>
   </React.StrictMode>
 );
