@@ -1,0 +1,63 @@
+/* General Page Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; 
+}
+
+/* Header Styles */
+.Nutrition-header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black; 
+    padding: 10px 20px; 
+    color: white;
+    z-index: 1000; 
+}
+
+.Nutrition-header nav a {
+    margin: 0 15px; 
+    color: white;
+    text-decoration: none;
+    font-size: 16px; 
+}
+
+.Nutrition-header nav a:hover {
+    text-decoration: underline; 
+}
+
+.Nutrition-header .login-button {
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 6px 12px; 
+    font-size: 16px; 
+    cursor: pointer;
+}
+
+.Nutrition-header .login-button:hover {
+    background-color: white;
+    color: black; 
+}
+
+/* Content Styles */
+.Nutrition-content {
+    padding-top: 80px; 
+    margin: 20px; 
+}
+
+.Nutrition-content h1 {
+    font-size: 2rem; 
+    font-weight: bold;
+    margin-bottom: 20px; 
+}
+
+.Nutrition-content p {
+    font-size: 1rem; 
+    line-height: 1.5; 
+    margin-bottom: 20px; 
+}

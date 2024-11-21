@@ -44,4 +44,34 @@ body {
     background-position: center;
     background-repeat: no-repeat;
   }
+
+  .section {
+    height: 100vh; /* Full-screen sections */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  .section-content {
+    background-color: rgba(0, 0, 0, 0.6); /* Black with opacity */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .section-content h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+  }
+  
+  .section-content p {
+    font-size: 1.2rem;
+  }
+  
+  
   

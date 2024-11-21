@@ -1,4 +1,5 @@
 import React from 'react';
+nutritions-v4
 import NutritionBackgroundOne from '../assets/lotus-design-n-print--Vfa35ueUCo-unsplash.jpg';
 import NutritionBackgroundTwo from '../assets/clay-banks-4zlQ3CCoIyo-unsplash.jpg';
 import NutritionBackgroundThree from '../assets/lotus-design-n-print-9b7wGJQaScw-unsplash.jpg';
@@ -10,6 +11,8 @@ import FoodThree from '../assets/carrot-cake-banana-bread-9.jpg';
 import FoodFour from '../assets/Cilbir-5.1200px.jpg';
 import FoodFive from '../assets/greengoddesssalad-2-1.jpg';
 import FoodSix from '../assets/scrambled-oats-recipe_square-min.jpg';
+import './Nutrition.css'; // Import the CSS file for styling
+FixedDev
 
 const Nutrition: React.FC = () => {
     // Array of background images for each section
@@ -31,6 +34,7 @@ const Nutrition: React.FC = () => {
     ];
 
     return (
+nutritions-v4
         <div className="w-full min-h-[3600px]">
             {/* Section 1 */}
             <section
@@ -93,6 +97,34 @@ const Nutrition: React.FC = () => {
                     </div>
                 </section>
             ))}
+        <div>
+            {/* Header Section */}
+            <header className="nutrition-header">
+                <div>WHERE TO START</div>
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="/about-us">About Us</a>
+                    <a href="/workouts">Workouts</a>
+                    <a href="/nutrition">Nutrition</a>
+                    <a href="/contacts">Contacts</a>
+                </nav>
+                <button className="login-button">Login</button>
+            </header>
+
+            {/* Main Content */}
+            <div className="Nutrition-content">
+                <h1>Nutrition</h1>
+                <p>
+                    Welcome to the Nutrition page! Here, you can find all the
+                    information related to our nutrition plans and tips.
+                </p>
+                <img
+                    src={require('./assets/nutrition.jpg')} // Replace with real image
+                    alt="Nutrition"
+                    style={{ width: '100%', height: 'auto' }}
+                />
+            </div>
+FixedDev
         </div>
     );
 };

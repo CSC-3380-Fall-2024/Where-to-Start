@@ -8,7 +8,8 @@ import Login from './loginpage/Login';
 import Register from './loginpage/Register';
 import ForgotPassword from './loginpage/ForgotPassword';
 import Contact from './Contact/Contact';
-
+import Workouts from './Workouts/workouts';
+import Nutrition from './Nutrition/Nutrition';
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,8 @@ const App: React.FC = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/Workouts" element={<Workouts />} />
+      <Route path="/Nutrition" element={<Nutrition />} />
       
       {/* <Route path="*" element={<Navigate replace to="/login" />} /> */}
       //this line of code is routing most things to log in. 
