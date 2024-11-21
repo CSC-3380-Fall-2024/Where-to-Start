@@ -41,7 +41,7 @@ const Login: React.FC = () => {
       >
         <div className="absolute bottom-10 left-10">
           <Link
-            to="/where-to-start"
+            to="/"
             className="px-6 py-3 text-lg text-white font-bold rounded transition duration-300 ease-in-out"
             style={{
               backgroundColor: "rgba(0, 0, 0, 0.5)", // Translucent black background
