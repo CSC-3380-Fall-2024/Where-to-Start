@@ -167,7 +167,7 @@ function Home() {
             </div>
                 <nav>
                     <Link to="/">Home</Link>
-                    <Link to="/AboutUs">About Us</Link>
+                    <Link to="/About-us">About Us</Link>
                     <Link to="/workouts">Workouts</Link>
                     <Link to="/nutrition">Nutrition</Link>
                     <Link to="/contacts">Contacts</Link>
