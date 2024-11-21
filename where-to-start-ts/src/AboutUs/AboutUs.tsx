@@ -19,7 +19,7 @@ const AboutUs: React.FC = () => {
           <a href="/">Home</a>
           <a href="/about-us">About Us</a>
           <a href="/workouts">Workouts</a>
-          <a href="/nutrition">Nutrition</a>
+          <a href="/Nutrition">Nutrition</a>
           <a href="/contacts">Contacts</a>
         </nav>
         <button className="login-button" onClick={handleLoginClick}>

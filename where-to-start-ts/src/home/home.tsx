@@ -176,7 +176,7 @@ function Home() {
                     <Link to="/">Home</Link>
                     <Link to="/About-us">About Us</Link>
                     <Link to="/workouts">Workouts</Link>
-                    <Link to="/nutrition">Nutrition</Link>
+                    <Link to="/Nutrition">Nutrition</Link>
                     <Link to="/contacts">Contacts</Link>
                 </nav>
                 <button className="login-button" onClick={handleLoginClick}>
