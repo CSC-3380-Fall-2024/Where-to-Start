@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HomeBackgroundOne from '../assets/gym_dumbbells_inventory_219519_1440x900.jpg';
 import HomeBackgroundTwo from '../assets/home-gym-designer-luxury-concept-hero.jpg';
 import HomeBackgroundThree from '../assets/meghan-holmes-buWcS7G1_28-unsplash.jpg';
@@ -159,6 +159,14 @@ function BackgroundSection({ image, content, index }: BackgroundSectionProps) {
 
 
 function Home() {
+
+    const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
+
+
     return (
         <div className="home-main" style={{ width: '100vw', overflow: 'hidden' }}>
             <header className="home-header">
@@ -171,10 +179,10 @@ function Home() {
                     <Link to="/workouts">Workouts</Link>
                     <Link to="/nutrition">Nutrition</Link>
                     <Link to="/contacts">Contacts</Link>
-                </nav>
-                <div className="right-wrapper">
-                    <button className="login-button right-position">Login</button>
-                </div>
+                    </nav>
+                 <button className="login-button" onClick={handleLoginClick}>
+                    Login
+                </button>
             </header>
             {backgrounds.map((image, index) => (
                 <BackgroundSection 
