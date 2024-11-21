@@ -106,8 +106,6 @@ body {
 
 .routine-card {
     flex: 0 0 auto;
-    width: 200px; 
-    height: 150px; 
     display: flex;
     flex-direction: column; 
     align-items: center;
@@ -136,4 +134,30 @@ body {
 .routine-card p {
     font-size: 0.9rem;
     color: #555; 
+}
+
+.routine-card.expanded {
+    position: fixed; /* Position it relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%) scale(1.2); /* Center and scale */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly brighter background */
+    z-index: 1000; /* Ensure it appears above other elements */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+    transition: transform 0.3s ease, background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    width: 80%; /* Optional: Adjust width for better scaling */
+    max-width: 600px; /* Optional: Prevent it from getting too large */
+    height: auto; /* Adjust height to fit content */
+    padding: 20px; /* Add some padding for better spacing */
+}
+
+
+/* Optional: Make the card content more readable when expanded */
+.routine-card.expanded h3 {
+    font-size: 1.4rem;
+}
+
+.routine-card.expanded ul {
+    font-size: 3rem;
 }
