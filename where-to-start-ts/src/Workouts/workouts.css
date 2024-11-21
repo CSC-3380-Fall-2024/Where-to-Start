@@ -4,6 +4,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f7f9fc; /* Light background for better readability */
     color: #333; /* Neutral text color */
+    font-weight: bold;
 }
 
 /* Page Layout */
@@ -13,7 +14,6 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed; 
-    backdrop-filter: brightness(0.8); 
 }
 
 /* Header Section */
@@ -41,7 +41,6 @@ body {
 }
 
 .Workouts-header nav a:hover {
-    
     text-decoration: underline;
 }
 
@@ -74,10 +73,13 @@ body {
 .muscle-category {
     margin-bottom: 40px;
     padding: 10px 15px;
-    background-color: rgba(255, 255, 255, 0.8); 
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(5px);
+    position: relative; 
+    z-index: 1; 
+    overflow: visible; 
 }
 
 .muscle-title {
@@ -86,7 +88,6 @@ body {
     color: black;
     text-align: center;
 }
-
 
 .routine-scroll {
     display: flex;
@@ -97,21 +98,18 @@ body {
     padding: 10px 0;
 }
 
-
 .routine-scroll::-webkit-scrollbar {
     height: 8px;
 }
 
-
-
 .routine-card {
     flex: 0 0 auto;
-    width: 200px; 
-    height: 150px; 
     display: flex;
     flex-direction: column; 
     align-items: center;
     justify-content: center;
+    width: 300px; 
+    height: 150px; 
     background-color: rgba(255, 255, 255, 0.6); 
     color: black;
     border-radius: 12px;
@@ -120,7 +118,9 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     padding: 10px; 
     transition: transform 0.3s ease, background-color 0.3s;
+    overflow: hidden; /* Ensure content doesn't overflow */
 }
+
 
 .routine-card:hover {
     transform: scale(1.05); 
@@ -136,4 +136,43 @@ body {
 .routine-card p {
     font-size: 0.9rem;
     color: #555; 
+}
+
+/* Expanded Routine Card */
+.routine-card.expanded {
+    position: fixed; /* Position it relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%) scale(1.2); /* Center and scale */
+    background-color: rgba(255, 255, 255, 1); /* Full white for better focus */
+    z-index: 1000; /* Place it above other elements */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+    transition: transform 0.3s ease, background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    width: 80%; /* Adjust width for better scaling */
+    max-width: 600px; /* Prevent the card from getting too wide */
+    height: auto; /* Adjust height to fit content */
+    padding: 20px; /* Add padding for better spacing */
+    overflow: visible; /* Prevent clipping of content */
+}
+
+/* Optional: Make the card content more readable when expanded */
+.routine-card.expanded h3 {
+    font-size: 1.4rem;
+}
+
+.routine-card.expanded ul {
+    font-size: 1.1rem;
+}
+
+/* Modal Overlay (Optional) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dimmed background */
+    z-index: 999; /* Layer below the expanded card */
+    backdrop-filter: blur(5px); /* Optional blur effect */
 }

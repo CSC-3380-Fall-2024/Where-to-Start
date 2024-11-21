@@ -1,47 +1,67 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { auth } from "@/firebase";
+import { sendPasswordResetEmail } from "firebase/auth";
 
-const ForgotPassword = () => {
-  const [email, setEmail] = useState("");   // email input state
+const ForgotPassword: React.FC = () => {
+  const [email, setEmail] = useState(""); // Email input state
+  const [loading, setLoading] = useState(false); // For showing a loading state
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();  // prevent default form behavior
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault(); // Stop the form from refreshing the page
 
-    console.log("Forgot Password submitted for", { email });
-    // Add your password reset logic here (e.g., send reset link to email)
+    if (!email) {
+      toast.warn("Please enter your email.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // Send password reset email with Firebase
+      await sendPasswordResetEmail(auth, email);
+      toast.success("Password reset link sent! Check your email.");
+      setEmail(""); // Clear the email input
+    } catch (error) {
+      console.error("Error sending password reset email:", error);
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
-      {/* Container for the forgot password form */}
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg max-w-sm w-full">
+        <h1 className="text-2xl font-bold mb-6 text-center">Forgot Password</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-medium">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="mt-1 block w-full p-2 border rounded-md"
+              required
+            />
+          </div>
 
-      <h1 className="text-2xl font-bold mb-6 text-center">Forgot Password</h1>
-      {/* Title for forgot password form */}
-
-      <form onSubmit={handleSubmit}>
-        {/* Form submission will trigger handleSubmit */}
-
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Email</label>
-          {/* Label for email input */}
-
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-            required
-          />
-          {/* Email input field */}
-        </div>
-
-        <button
-          type="submit"
-          className="w-full py-2 px-4 border border-black text-sm font-medium rounded-md text-black bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-          Send Reset Link
-        </button>
-        {/* Button to submit the forgot password form */}
-      </form>
+          <button
+            type="submit"
+            className="w-full py-2 px-4 border rounded-md bg-indigo-600 text-white hover:bg-indigo-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
+            disabled={loading}
+          >
+            {loading ? "Sending..." : "Send Reset Link"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
