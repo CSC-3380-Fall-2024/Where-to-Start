@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NutritionBackgroundOne from '../assets/lotus-design-n-print--Vfa35ueUCo-unsplash.jpg';
 import NutritionBackgroundTwo from '../assets/clay-banks-4zlQ3CCoIyo-unsplash.jpg';
@@ -14,12 +14,24 @@ import FoodSix from '../assets/scrambled-oats-recipe_square-min.jpg';
 
 const Nutrition: React.FC = () => {
     const navigate = useNavigate();
+    const [selectedRecipe, setSelectedRecipe] = useState<{
+        name: string;
+        recipe: string;
+        calories: string;
+    } | null>(null);
 
     const handleLoginClick = () => {
         navigate('/login');
     };
-
     // Array of background images for each section
+    const handleRecipeClick = (recipe: { name: string; recipe: string; calories: string }) => {
+        setSelectedRecipe(recipe);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedRecipe(null);
+    };
+
     const backgrounds = [
         NutritionBackgroundOne,
         NutritionBackgroundTwo,
@@ -27,32 +39,61 @@ const Nutrition: React.FC = () => {
         NutritionBackgroundFour,
     ];
 
-    // Array of food images and names
     const foodDetails = [
-        { image: FoodOne, name: 'Baked Meatballs' },
-        { image: FoodTwo, name: 'Balsamic Chicken' },
-        { image: FoodThree, name: 'Carrot Cake Banana Bread' },
-        { image: FoodFour, name: 'Turkish Eggs' },
-        { image: FoodFive, name: 'Tuna, Avocado & Quinoa Salad' },
-        { image: FoodSix, name: 'Scrambled Oats' },
+        {
+            image: FoodOne,
+            name: 'Baked Meatballs',
+            recipe: 'Mix ground beef, breadcrumbs, and seasonings. Shape into balls and bake at 400°F for 20 minutes.',
+            calories: '300 kcal per serving',
+        },
+        {
+            image: FoodTwo,
+            name: 'Balsamic Chicken',
+            recipe: 'Marinate chicken in balsamic vinegar, garlic, and olive oil. Grill until fully cooked.',
+            calories: '280 kcal per serving',
+        },
+        {
+            image: FoodThree,
+            name: 'Carrot Cake Banana Bread',
+            recipe: 'Combine shredded carrots, mashed bananas, flour, and spices. Bake at 350°F for 50 minutes.',
+            calories: '320 kcal per slice',
+        },
+        {
+            image: FoodFour,
+            name: 'Turkish Eggs',
+            recipe: 'Poach eggs, then serve with garlic yogurt and chili butter. Garnish with dill.',
+            calories: '250 kcal per serving',
+        },
+        {
+            image: FoodFive,
+            name: 'Tuna, Avocado & Quinoa Salad',
+            recipe: 'Mix cooked quinoa, diced avocado, canned tuna, and a lemon vinaigrette.',
+            calories: '350 kcal per serving',
+        },
+        {
+            image: FoodSix,
+            name: 'Scrambled Oats',
+            recipe: 'Cook oats with milk, then scramble with eggs. Add cinnamon and honey for flavor.',
+            calories: '230 kcal per serving',
+        },
     ];
 
     return (
         <div className="w-full min-h-[3600px]">
             {/* Header */}
             <header className="Nutrition-header">
-    <div>WHERE TO START</div>
-    <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about-us">About Us</Link>
-        <Link to="/workouts">Workouts</Link>
-        <Link to="/nutrition">Nutrition</Link>
-        <Link to="/contacts">Contacts</Link>
-    </nav>
-    <button className="login-button" onClick={handleLoginClick}>
-        Login
-    </button>
-</header>
+                <div>WHERE TO START</div>
+                <nav>
+                    <Link to="/">Home</Link>
+                    <Link to="/about-us">About Us</Link>
+                    <Link to="/workouts">Workouts</Link>
+                    <Link to="/nutrition">Nutrition</Link>
+                    <Link to="/contacts">Contacts</Link>
+                </nav>
+                <button className="login-button" onClick={handleLoginClick}>
+                    Login
+                </button>
+            </header>
 
 
             {/* Section 1 */}
@@ -94,7 +135,10 @@ const Nutrition: React.FC = () => {
                             <h2 className="text-lg font-semibold text-center">
                                 {foodDetails[sectionIndex * 2].name}
                             </h2>
-                            <button className="mt-4 block mx-auto bg-blue-500 text-white px-4 py-2 rounded-lg">
+                            <button
+                                className="mt-4 block mx-auto bg-blue-500 text-white px-4 py-2 rounded-lg"
+                                onClick={() => handleRecipeClick(foodDetails[sectionIndex * 2])}
+                            >
                                 Ingredients
                             </button>
                         </div>
@@ -109,13 +153,34 @@ const Nutrition: React.FC = () => {
                             <h2 className="text-lg font-semibold text-center">
                                 {foodDetails[sectionIndex * 2 + 1].name}
                             </h2>
-                            <button className="mt-4 block mx-auto bg-blue-500 text-white px-4 py-2 rounded-lg">
+                            <button
+                                className="mt-4 block mx-auto bg-blue-500 text-white px-4 py-2 rounded-lg"
+                                onClick={() => handleRecipeClick(foodDetails[sectionIndex * 2 + 1])}
+                            >
                                 Ingredients
                             </button>
                         </div>
                     </div>
                 </section>
             ))}
+
+            {selectedRecipe && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
+                    <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-md text-gray-800">
+                        <h2 className="text-2xl font-bold mb-4 text-center">
+                            {selectedRecipe.name}
+                        </h2>
+                        <p className="mb-4">{selectedRecipe.recipe}</p>
+                        <p className="text-sm text-gray-600 italic">Calories: {selectedRecipe.calories}</p>
+                        <button
+                            className="mt-6 bg-red-500 text-white px-4 py-2 rounded-lg block mx-auto"
+                            onClick={handleCloseModal}
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
