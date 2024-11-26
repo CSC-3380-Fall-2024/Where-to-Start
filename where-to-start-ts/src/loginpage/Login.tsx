@@ -1,32 +1,34 @@
+// Login.tsx: User login
+
 import React, { useState, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { auth } from "@/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebase"; // Import Firebase auth instance
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState(""); // For email input
   const [password, setPassword] = useState(""); // For password input
   const [loading, setLoading] = useState(false); // For showing a loading state
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // React Router navigation
 
+  // Handles the login process
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Stop the form from refreshing the page
-
-    if (!email || !password) {
-      toast.warn("Please fill out both fields.");
-      return;
-    }
-
+    e.preventDefault(); // Prevent default form submission
     setLoading(true);
+
     try {
-      // Log in with Firebase
+      // Authenticate the user with Firebase
       await signInWithEmailAndPassword(auth, email, password);
       toast.success("Welcome back!");
-      navigate("/home"); // Go to the homepage
+      navigate("/"); // Redirect to homepage
     } catch (error) {
-      toast.error("Failed to log in. Check your details and try again.");
       console.error("Login error:", error);
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Invalid email or password. Please try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -44,7 +46,7 @@ const Login: React.FC = () => {
             to="/"
             className="px-6 py-3 text-lg text-white font-bold rounded transition duration-300 ease-in-out"
             style={{
-              backgroundColor: "rgba(0, 0, 0, 0.5)", // Translucent black background
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
               textAlign: "center",
             }}
           >
@@ -58,6 +60,7 @@ const Login: React.FC = () => {
         <div className="p-6 rounded shadow max-w-sm w-full">
           <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
           <form onSubmit={handleLogin}>
+            {/* Email input */}
             <div className="mb-4">
               <label htmlFor="email" className="block text-sm font-medium">
                 Email
@@ -69,10 +72,10 @@ const Login: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 className="mt-1 block w-full p-2 border rounded"
-                required
               />
             </div>
 
+            {/* Password input */}
             <div className="mb-4">
               <label htmlFor="password" className="block text-sm font-medium">
                 Password
@@ -84,7 +87,6 @@ const Login: React.FC = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 className="mt-1 block w-full p-2 border rounded"
-                required
               />
             </div>
 
@@ -94,12 +96,13 @@ const Login: React.FC = () => {
               </Link>
             </div>
 
+            {/* Login button */}
             <button
               type="submit"
               className="w-full py-2 px-4 border rounded bg-indigo-600 text-white hover:bg-indigo-500"
               disabled={loading}
             >
-              {loading ? "Logging in..." : "Login"}
+              {loading ? "Redirecting..." : "Login"}
             </button>
           </form>
 
