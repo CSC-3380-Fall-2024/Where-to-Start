@@ -1,19 +1,14 @@
-// Login.tsx: User login
-
 import React, { useState, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase"; // Import Firebase auth instance
-
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState(""); // For email input
   const [password, setPassword] = useState(""); // For password input
   const [loading, setLoading] = useState(false); // For showing a loading state
   const navigate = useNavigate(); // React Router navigation
-
 
   // Handles the login process
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
@@ -33,9 +28,8 @@ const Login: React.FC = () => {
           : "Invalid email or password. Please try again."
       );
     } finally {
-
       setLoading(false);
-    }, 1000); 
+    }
   };
 
   return (
@@ -50,9 +44,7 @@ const Login: React.FC = () => {
             to="/"
             className="px-6 py-3 text-lg text-white font-bold rounded transition duration-300 ease-in-out"
             style={{
-
               backgroundColor: "rgba(0, 0, 0, 0.5)",
-
               textAlign: "center",
             }}
           >
