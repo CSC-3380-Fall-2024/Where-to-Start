@@ -18,13 +18,13 @@ const Register: React.FC = () => {
     }
 
     try {
-      setError(null); // Reset error state
-      setIsLoading(true); // Set loading state
+      setError(null); // reset error state
+      setIsLoading(true); // set load state 
       await createUserWithEmailAndPassword(auth, email, password);
-      setIsLoading(false); // Reset loading state
-      navigate("/login"); // Redirect to login page
+      setIsLoading(false); // save registration info 
+      navigate("/login"); // reroute to login page
     } catch (err: any) {
-      setIsLoading(false); // Reset loading state
+      setIsLoading(false); 
       setError(err.message || "An error occurred during registration.");
     }
   };
@@ -124,7 +124,7 @@ const styles = {
   title: {
     fontSize: "24px",
     fontWeight: "bold",
-    textAlign: "center" as "center", // Explicit cast
+    textAlign: "center" as "center", // explicit cast to fix error to make styling more clean 
     marginBottom: "20px",
   },
   inputGroup: {
@@ -169,7 +169,7 @@ const styles = {
     color: "red",
     fontSize: "14px",
     marginBottom: "10px",
-    textAlign: "center" as "center", // Explicit cast
+    textAlign: "center" as "center", // same as added on line 127 to fix repetitive errors
   },
 };
 
