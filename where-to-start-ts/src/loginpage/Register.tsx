@@ -1,147 +1,166 @@
-// Register.tsx: User registration
-
-import React, { FormEvent, useState } from "react";
-import { toast } from "react-toastify";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "@/firebase"; // Import auth and db from firebase.ts
-import { doc, setDoc } from "firebase/firestore"; // Firestore methods
-import { useNavigate } from "react-router-dom"; // Import navigation hook
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register: React.FC = () => {
-  const [email, setEmail] = useState(""); // Email input state
-  const [password, setPassword] = useState(""); // Password input state
-  const [confirmPassword, setConfirmPassword] = useState(""); // Confirm password input state
-  const [loading, setLoading] = useState(false); // For showing a loading state
-  const navigate = useNavigate(); // React Router navigation
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const auth = getAuth();
 
-  // Handles the registration process
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevent form submission
-  
-    if (!email || !password || !confirmPassword) {
-      toast.warn("All fields are required.");
-      return;
-    }
-  
+  const handleRegister = async () => {
     if (password !== confirmPassword) {
-      toast.warn("Passwords do not match.");
+      setError("Passwords do not match.");
       return;
     }
-  
-    setLoading(true);
+
     try {
-      console.log("Starting user registration...");
-  
-      // Step 1: Create user in Firebase Authentication
-      const res = await createUserWithEmailAndPassword(auth, email, password);
-      console.log("User registered:", res.user);
-  
-      // Step 2: Save user info in Firestore
-      console.log("Saving user info to Firestore...");
-      await setDoc(doc(db, "users", res.user.uid), {
-        email,
-        id: res.user.uid,
-        createdAt: new Date().toISOString(),
-      });
-      console.log("User info saved successfully.");
-  
-      // Step 3: Notify and redirect
-      toast.success("Account created! Redirecting to login...");
-      console.log("Navigating to /login...");
-      navigate("/login");
-  
-      // Fallback timeout to ensure it doesn't stay stuck
-      setTimeout(() => {
-        console.log("Fallback: Redirecting to /login after timeout.");
-        setLoading(false);
-        navigate("/login");
-      }, 5000); // Redirect after 5 seconds if navigate fails
-    } catch (error) {
-      console.error("Error during registration:", error);
-      toast.error(
-        error instanceof Error
-          ? error.message
-          : "Something went wrong. Please try again."
-      );
-    } finally {
-      setLoading(false); // Ensure loading is stopped
-      console.log("Loading state set to false.");
+      setError(null); // Reset error state
+      setIsLoading(true); // Set loading state
+      await createUserWithEmailAndPassword(auth, email, password);
+      setIsLoading(false); // Reset loading state
+      navigate("/login"); // Redirect to login page
+    } catch (err: any) {
+      setIsLoading(false); // Reset loading state
+      setError(err.message || "An error occurred during registration.");
     }
   };
-  //todo: error from firebase: 
-  /* error 400 (bad request)
-    funny enough, the data is registered, but the register page
-    locks up and doesn't send the toast. Fix later, but we have a working DB 
-    */ 
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg max-w-sm w-full">
-        <h1 className="text-2xl font-bold mb-6 text-center">Register</h1>
-        <form onSubmit={handleSubmit}>
-          {/* Email input */}
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium">
+    <div style={styles.container}>
+      <div style={styles.box}>
+        <h2 style={styles.title}>Register</h2>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleRegister();
+          }}
+        >
+          <div style={styles.inputGroup}>
+            <label htmlFor="email" style={styles.label}>
               Email
             </label>
             <input
               type="email"
               id="email"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className="mt-1 block w-full p-2 border rounded-md"
               required
+              style={styles.input}
             />
           </div>
-
-          {/* Password input */}
-          <div className="mb-4">
-            <label htmlFor="password" className="block text-sm font-medium">
+          <div style={styles.inputGroup}>
+            <label htmlFor="password" style={styles.label}>
               Password
             </label>
             <input
               type="password"
               id="password"
+              placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
-              className="mt-1 block w-full p-2 border rounded-md"
               required
+              style={styles.input}
             />
           </div>
-
-          {/* Confirm Password input */}
-          <div className="mb-6">
-            <label
-              htmlFor="confirm-password"
-              className="block text-sm font-medium"
-            >
+          <div style={styles.inputGroup}>
+            <label htmlFor="confirmPassword" style={styles.label}>
               Confirm Password
             </label>
             <input
               type="password"
-              id="confirm-password"
+              id="confirmPassword"
+              placeholder="Confirm your password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Confirm your password"
-              className="mt-1 block w-full p-2 border rounded-md"
               required
+              style={styles.input}
             />
           </div>
-
-          {/* Register button */}
+          {error && <p style={styles.error}>{error}</p>}
           <button
             type="submit"
-            className="w-full py-2 px-4 border rounded-md bg-indigo-600 text-white hover:bg-indigo-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
-            disabled={loading}
+            style={isLoading ? styles.buttonLoading : styles.button}
+            disabled={isLoading}
           >
-            {loading ? "Creating Account..." : "Register"}
+            {isLoading ? "Creating Account..." : "Register"}
           </button>
         </form>
       </div>
     </div>
   );
+};
+
+const styles = {
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    backgroundColor: "#f4f4f4",
+  },
+  box: {
+    backgroundColor: "#ffffff",
+    padding: "30px",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    width: "100%",
+    maxWidth: "400px",
+  },
+  title: {
+    fontSize: "24px",
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: "20px",
+  },
+  inputGroup: {
+    marginBottom: "15px",
+  },
+  label: {
+    display: "block",
+    fontSize: "14px",
+    fontWeight: "500",
+    marginBottom: "5px",
+  },
+  input: {
+    width: "100%",
+    padding: "10px",
+    fontSize: "14px",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+  },
+  button: {
+    width: "100%",
+    padding: "10px",
+    backgroundColor: "#6c63ff",
+    color: "#ffffff",
+    border: "none",
+    borderRadius: "5px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    cursor: "pointer",
+  },
+  buttonLoading: {
+    width: "100%",
+    padding: "10px",
+    backgroundColor: "#cccccc",
+    color: "#ffffff",
+    border: "none",
+    borderRadius: "5px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    cursor: "not-allowed",
+  },
+  error: {
+    color: "red",
+    fontSize: "14px",
+    marginBottom: "10px",
+    textAlign: "center",
+  },
 };
 
 export default Register;
