@@ -1,83 +1,166 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-const Register = () => {
-  const [email, setEmail] = useState("");                // email input state
-  const [password, setPassword] = useState("");          // password input state
-  const [confirmPassword, setConfirmPassword] = useState(""); // confirm password input state
+const Register: React.FC = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const auth = getAuth();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();  // prevent default form behavior
+  const handleRegister = async () => {
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
 
-    if (password === confirmPassword) {
-      console.log("Registering with", { email, password });
-      // Add your registration logic here
-    } else {
-      alert("Passwords do not match!"); // basic alert for mismatched passwords
+    try {
+      setError(null); // Reset error state
+      setIsLoading(true); // Set loading state
+      await createUserWithEmailAndPassword(auth, email, password);
+      setIsLoading(false); // Reset loading state
+      navigate("/login"); // Redirect to login page
+    } catch (err: any) {
+      setIsLoading(false); // Reset loading state
+      setError(err.message || "An error occurred during registration.");
     }
   };
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
-      {/* Container for the registration form */}
-      
-      <h1 className="text-2xl font-bold mb-6 text-center">Register</h1>
-      {/* Title for the registration form */}
-
-      <form onSubmit={handleSubmit}>
-        {/* Form submission will trigger handleSubmit */}
-
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Email</label>
-          {/* Label for the email input */}
-
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-            required
-          />
-          {/* Email input field */}
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Password</label>
-          {/* Label for the password input */}
-
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-            required
-          />
-          {/* Password input field */}
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Confirm Password</label>
-          {/* Label for the confirm password input */}
-
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-            required
-          />
-          {/* Confirm password input field */}
-        </div>
-
-        <button
-          type="submit"
-          className="w-full py-2 px-4 border border-black text-sm font-medium rounded-md text-black bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+    <div style={styles.container}>
+      <div style={styles.box}>
+        <h2 style={styles.title}>Register</h2>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleRegister();
+          }}
         >
-          Register
-        </button>
-        {/* Submit button for registration */}
-      </form>
+          <div style={styles.inputGroup}>
+            <label htmlFor="email" style={styles.label}>
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              style={styles.input}
+            />
+          </div>
+          <div style={styles.inputGroup}>
+            <label htmlFor="password" style={styles.label}>
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              style={styles.input}
+            />
+          </div>
+          <div style={styles.inputGroup}>
+            <label htmlFor="confirmPassword" style={styles.label}>
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm your password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              style={styles.input}
+            />
+          </div>
+          {error && <p style={styles.error}>{error}</p>}
+          <button
+            type="submit"
+            style={isLoading ? styles.buttonLoading : styles.button}
+            disabled={isLoading}
+          >
+            {isLoading ? "Creating Account..." : "Register"}
+          </button>
+        </form>
+      </div>
     </div>
   );
+};
+
+const styles = {
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    backgroundColor: "#f4f4f4",
+  },
+  box: {
+    backgroundColor: "#ffffff",
+    padding: "30px",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    width: "100%",
+    maxWidth: "400px",
+  },
+  title: {
+    fontSize: "24px",
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: "20px",
+  },
+  inputGroup: {
+    marginBottom: "15px",
+  },
+  label: {
+    display: "block",
+    fontSize: "14px",
+    fontWeight: "500",
+    marginBottom: "5px",
+  },
+  input: {
+    width: "100%",
+    padding: "10px",
+    fontSize: "14px",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+  },
+  button: {
+    width: "100%",
+    padding: "10px",
+    backgroundColor: "#6c63ff",
+    color: "#ffffff",
+    border: "none",
+    borderRadius: "5px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    cursor: "pointer",
+  },
+  buttonLoading: {
+    width: "100%",
+    padding: "10px",
+    backgroundColor: "#cccccc",
+    color: "#ffffff",
+    border: "none",
+    borderRadius: "5px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    cursor: "not-allowed",
+  },
+  error: {
+    color: "red",
+    fontSize: "14px",
+    marginBottom: "10px",
+    textAlign: "center",
+  },
 };
 
 export default Register;

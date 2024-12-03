@@ -1,63 +1,94 @@
-/* General Page Styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif; 
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; 
 }
 
-/* Header Styles */
+@font-face {
+    font-family: 'KronaOne';
+    src: url('../assets/fonts/KronaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 .Nutrition-header {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black; 
-    padding: 10px 20px; 
+    background-color: black;
+    padding: 10px 40px; /* Increased padding for better spacing */
     color: white;
-    z-index: 1000; 
+    font-family: 'Inter', sans-serif; /* Optional: Set a default font */
+}
+
+.Nutrition-header div {
+    font-size: 18px; /* Adjust font size for consistency */
+    font-weight: bold;
+}
+
+.Nutrition-header nav {
+    display: flex;
+    gap: 20px; /* Add spacing between nav items */
 }
 
 .Nutrition-header nav a {
-    margin: 0 15px; 
     color: white;
     text-decoration: none;
-    font-size: 16px; 
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .Nutrition-header nav a:hover {
-    text-decoration: underline; 
+    text-decoration: underline; /* Optional: Add hover effect */
 }
 
-.Nutrition-header .login-button {
+.login-button {
+    background-color: black;
     color: white;
-    background-color: transparent;
-    border: 1px solid white;
-    padding: 6px 12px; 
-    font-size: 16px; 
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px 16px;
     cursor: pointer;
-}
-
-.Nutrition-header .login-button:hover {
-    background-color: white;
-    color: black; 
-}
-
-/* Content Styles */
-.Nutrition-content {
-    padding-top: 80px; 
-    margin: 20px; 
-}
-
-.Nutrition-content h1 {
-    font-size: 2rem; 
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 20px; 
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.Nutrition-content p {
-    font-size: 1rem; 
-    line-height: 1.5; 
-    margin-bottom: 20px; 
+.login-button:hover {
+    background-color: white;
+    color: black;
 }
+
+
+.krona-one-font {
+    font-family: 'KronaOne', serif;
+}
+
+
+.inter-font {
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+}
+
