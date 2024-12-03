@@ -30,17 +30,17 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.box}>
-        <h2 style={styles.title}>Register</h2>
+    <div style={styles.container as React.CSSProperties}>
+      <div style={styles.box as React.CSSProperties}>
+        <h2 style={styles.title as React.CSSProperties}>Register</h2>
         <form
           onSubmit={(e) => {
             e.preventDefault();
             handleRegister();
           }}
         >
-          <div style={styles.inputGroup}>
-            <label htmlFor="email" style={styles.label}>
+          <div style={styles.inputGroup as React.CSSProperties}>
+            <label htmlFor="email" style={styles.label as React.CSSProperties}>
               Email
             </label>
             <input
@@ -50,11 +50,14 @@ const Register: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              style={styles.input}
+              style={styles.input as React.CSSProperties}
             />
           </div>
-          <div style={styles.inputGroup}>
-            <label htmlFor="password" style={styles.label}>
+          <div style={styles.inputGroup as React.CSSProperties}>
+            <label
+              htmlFor="password"
+              style={styles.label as React.CSSProperties}
+            >
               Password
             </label>
             <input
@@ -64,11 +67,14 @@ const Register: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              style={styles.input}
+              style={styles.input as React.CSSProperties}
             />
           </div>
-          <div style={styles.inputGroup}>
-            <label htmlFor="confirmPassword" style={styles.label}>
+          <div style={styles.inputGroup as React.CSSProperties}>
+            <label
+              htmlFor="confirmPassword"
+              style={styles.label as React.CSSProperties}
+            >
               Confirm Password
             </label>
             <input
@@ -78,13 +84,17 @@ const Register: React.FC = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              style={styles.input}
+              style={styles.input as React.CSSProperties}
             />
           </div>
-          {error && <p style={styles.error}>{error}</p>}
+          {error && <p style={styles.error as React.CSSProperties}>{error}</p>}
           <button
             type="submit"
-            style={isLoading ? styles.buttonLoading : styles.button}
+            style={
+              isLoading
+                ? (styles.buttonLoading as React.CSSProperties)
+                : (styles.button as React.CSSProperties)
+            }
             disabled={isLoading}
           >
             {isLoading ? "Creating Account..." : "Register"}
@@ -114,7 +124,7 @@ const styles = {
   title: {
     fontSize: "24px",
     fontWeight: "bold",
-    textAlign: "center",
+    textAlign: "center" as "center", // Explicit cast
     marginBottom: "20px",
   },
   inputGroup: {
@@ -159,7 +169,7 @@ const styles = {
     color: "red",
     fontSize: "14px",
     marginBottom: "10px",
-    textAlign: "center",
+    textAlign: "center" as "center", // Explicit cast
   },
 };
 
