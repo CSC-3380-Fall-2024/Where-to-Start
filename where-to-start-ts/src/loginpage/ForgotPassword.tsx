@@ -4,8 +4,8 @@ import { auth } from "@/firebase";
 import { sendPasswordResetEmail } from "firebase/auth";
 
 const ForgotPassword: React.FC = () => {
-  const [email, setEmail] = useState(""); // Email input state
-  const [loading, setLoading] = useState(false); // For showing a loading state
+  const [email, setEmail] = useState(""); // for email input
+  const [loading, setLoading] = useState(false); 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // Stop the form from refreshing the page
@@ -20,7 +20,7 @@ const ForgotPassword: React.FC = () => {
       // Send password reset email with Firebase
       await sendPasswordResetEmail(auth, email);
       toast.success("Password reset link sent! Check your email.");
-      setEmail(""); // Clear the email input
+      setEmail("");
     } catch (error) {
       console.error("Error sending password reset email:", error);
       toast.error(
