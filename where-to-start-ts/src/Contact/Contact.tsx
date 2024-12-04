@@ -54,11 +54,8 @@ const Contact = () => {
           <div className="contact-item">
             <h2>Mailing Address</h2>
             <p>
-              This is still in a
+              This is still in a work in progress, no current address.
               <br />
-              work in progress, 
-              <br />
-              no address as of now.
             </p>
           </div>
         </section>
