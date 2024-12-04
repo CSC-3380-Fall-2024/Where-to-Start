@@ -32,7 +32,7 @@ const Contact = () => {
           <h1>Contact Us</h1>
           <div className="contact-item">
             <h2>Email Us</h2>
-            <p>geauxtigers25@tigers.com</p>
+            <p>wheretostartfitness1@gmail.com</p>
           </div>
           <div className="contact-item">
             <h2>Call Us</h2>
@@ -40,7 +40,7 @@ const Contact = () => {
             <p>
               Monday through Friday, 1pm to 2pm CST.
               <br />
-              Holidays never.
+              Closed on Holidays.
             </p>
           </div>
           <div className="contact-item">
@@ -56,9 +56,9 @@ const Contact = () => {
             <p>
               This is still in a
               <br />
-              work in progress
+              work in progress, 
               <br />
-              no address.
+              no address as of now.
             </p>
           </div>
         </section>
