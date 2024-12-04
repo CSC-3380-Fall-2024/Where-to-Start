@@ -40,7 +40,7 @@ const Contact = () => {
             <p>
               Monday through Friday, 1pm to 2pm CST.
               <br />
-              Holidays never.
+              Closed on holidays. 
             </p>
           </div>
           <div className="contact-item">
@@ -56,9 +56,9 @@ const Contact = () => {
             <p>
               This is still in a
               <br />
-              work in progress
+              work in progress.
               <br />
-              no address.
+              
             </p>
           </div>
         </section>
