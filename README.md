@@ -2,7 +2,7 @@
 Where To Start is a fitness and nutritonal website with many workouts and meals. This website targets anyone who is either in the fitness program or trying to get started. Workouts starting from beginner to our more elite level workouts. Meals are also important as well so there is meals suggested to eat with ingredients shown to make.
 
 ## About Project
-**Made With**
+### Made With
 - React
 - Vite
 - Typescript
