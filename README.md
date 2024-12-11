@@ -2,6 +2,7 @@
 Where To Start is a fitness and nutritonal website with many workouts and meals. This website targets anyone who is either in the fitness program or trying to get started. Workouts starting from beginner to our more elite level workouts. Meals are also important as well so there is meals suggested to eat with ingredients shown to make.
 
 ## About Project
+The frontend was made with Typescript using React and packages shown below. Firebase is what we use for our backend database to store our user accounts information for logins without having the local server running.
 ### Made With
 - React
 - Vite
@@ -63,7 +64,7 @@ npm run dev
 
 ![Screenshot 2024-12-10 at 10 44 06 PM](https://github.com/user-attachments/assets/dd6de747-7ab6-4632-9782-aee745654985)
 
-13. Now in the `Register` page create an account by typing in an `email` and `password` into the text box
+13. Now in the `Register` page create an account by typing in an `email` and `password` into the text box (Password must be 6 character or more)
 
 ![Screenshot 2024-12-10 at 10 45 09 PM](https://github.com/user-attachments/assets/3510d9b1-2398-497d-8de4-a2fd941341e4)
 
